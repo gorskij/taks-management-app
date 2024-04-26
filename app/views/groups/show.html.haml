@@ -1,0 +1,18 @@
+%h1 = @group.name
+%p
+  %b Owner:
+  = @group.owner.email
+%p
+  %b Single user:
+  = @group.single_user
+
+%br
+- if current_user == @group.owner
+  = link_to 'Edit', edit_group_path(@group)
+  \|
+  = button_to 'Destroy', @group, method: :delete, data: { confirm: 'Are you sure?' }
+  - if !@group.single_user
+    \|
+    = link_to 'Show Users', show_group_users_group_path(@group)
+\|
+= link_to 'Back', groups_path

@@ -1,0 +1,11 @@
+%h1= @group.name + ': Users'
+
+- if current_user == @group.owner
+  = link_to 'Add Users', add_group_users_group_path(@group)
+
+%tbody
+  - @group_users.each do |user|
+    %tr
+      %td= user.email
+      - if current_user == @group.owner
+        %td= button_to 'Remove user', delete_group_user_path(@group, user), method: :delete, data: { confirm: 'Are you sure?' }

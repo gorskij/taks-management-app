@@ -68,5 +68,5 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem "devise", "~> 4.9"
-gem "haml-rails", "~> 2.0"
+gem 'devise', '~> 4.9'
+gem 'haml-rails', '~> 2.0'

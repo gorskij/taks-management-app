@@ -1,0 +1,27 @@
+%h1 Listing groups
+
+%table
+  %thead
+    %tr
+      %th Owner
+      %th Name
+      %th Single user
+      %th
+      %th
+      %th
+
+  %tbody
+    - @groups.each do |group|
+      %tr
+        %td= group.owner.email
+        %td= group.name
+        %td= group.single_user
+        %td= link_to 'Show', group
+        %td= link_to 'Edit', edit_group_path(group)
+        %td= button_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Group', new_group_path
+%br
+= link_to 'Back', root_path
